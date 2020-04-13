@@ -1,0 +1,7 @@
+D:\complejidad\readCharacter\readCharacter\bin\Debug\readCharacter.exe.config
+D:\complejidad\readCharacter\readCharacter\bin\Debug\readCharacter.exe
+D:\complejidad\readCharacter\readCharacter\bin\Debug\readCharacter.pdb
+D:\complejidad\readCharacter\readCharacter\obj\Debug\readCharacter.csproj.CoreCompileInputs.cache
+D:\complejidad\readCharacter\readCharacter\obj\Debug\readCharacter.exe
+D:\complejidad\readCharacter\readCharacter\obj\Debug\readCharacter.pdb
+D:\complejidad\readCharacter\readCharacter\obj\Debug\readCharacter.csprojAssemblyReference.cache
