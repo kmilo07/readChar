@@ -280,8 +280,10 @@ namespace readCharacter
                     }
                 }
             }
+            int primero = 0;
             while (desplazamientoEnX !=0 || desplazamientoEnY!=0)
             {
+
                 f2 += 1;  //Ya que la matriz comienza en 0 se le debe añadir 1 para que ubique bien
                 f1 += 1;
                 col1 += 1;
@@ -370,17 +372,20 @@ namespace readCharacter
                 
                 else 
                 {
-                    
+                    if (primero==1)
+                    {
+                        f1 -= 1;
+                        col1 -= 1;
+                    }
+
                     if (desplazamientoDeColumna > desplazamientoDeFila)  //movemos el desplazamiento en el filas
                     {
-                        
                         if (desplazamientoEnX > 0)              //matr[fila,columna]   matr[desplazamientoY,desplazamientoX]
                         {
                             for(int i=0; i < deplazamiento; i++)
                             {
                                 col1 += 1;
-                                f1 += 1;
-                                matr[f1 + 1, col1 + 1] += ".";
+                                matr[f1, col1] += ".";
                                 desplazamientoEnX -= 1;
                             }
                            
@@ -390,7 +395,7 @@ namespace readCharacter
                             for (int i = 0; i < deplazamiento; i++)
                             {
                                 col1 -= 1;
-                                matr[f1 + 1, col1 + 1] += ".";
+                                matr[f1, col1] += ".";
                                 desplazamientoEnX += 1;
                             }
                                 
@@ -458,7 +463,7 @@ namespace readCharacter
                             for (int i = 0; i < deplazamiento; i++)
                             {
                                 f1 += 1;
-                                matr[f1 + 1, col1 + 1] += ".";
+                                matr[f1, col1] += ".";
                                 desplazamientoEnY -= 1;
                             }
 
@@ -468,7 +473,7 @@ namespace readCharacter
                             for (int i = 0; i < deplazamiento; i++)
                             {
                                 f1 -= 1;
-                                matr[f1 + 1, col1 + 1] += ".";
+                                matr[f1, col1] += ".";
                                 desplazamientoEnY += 1;
                             }
 
@@ -476,7 +481,7 @@ namespace readCharacter
                     }
                    
                 }
-
+                primero++;
             }
 
         }
