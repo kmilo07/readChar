@@ -280,12 +280,15 @@ namespace readCharacter
                     }
                 }
             }
-            while (desplazamientoEnX != desplazamientoEnY)
+            while (desplazamientoEnX !=0 || desplazamientoEnY!=0)
             {
                 f2 += 1;  //Ya que la matriz comienza en 0 se le debe añadir 1 para que ubique bien
                 f1 += 1;
                 col1 += 1;
                 col2 += 1;
+                int desplazamientoDeColumna = Math.Abs(desplazamientoEnX);
+                int desplazamientoDeFila = Math.Abs(desplazamientoEnY);
+                int deplazamiento = Math.Abs(desplazamientoDeColumna - desplazamientoDeFila);
                 if (desplazamientoEnX == 0) //desplazamientoEnY tiene que aumentar o disminuir y desplazamientoEnX constante
                 {
                     if (desplazamientoEnY > 0) //desplazamientoEnY tiene que aumentar
@@ -363,13 +366,11 @@ namespace readCharacter
 
                 }
 
-
                 /////Cuando los valore son distintos desde acá hay un problema--------------------------------------------------------------------------------
+                
                 else 
                 {
-                    int desplazamientoDeColumna = Math.Abs(desplazamientoEnX);      
-                    int desplazamientoDeFila = Math.Abs(desplazamientoEnY);
-                    int deplazamiento = Math.Abs(desplazamientoDeColumna - desplazamientoDeFila);
+                    
                     if (desplazamientoDeColumna > desplazamientoDeFila)  //movemos el desplazamiento en el filas
                     {
                         
@@ -395,9 +396,63 @@ namespace readCharacter
                                 
                         }
                     }
-                    else   //movemos el desplazamiento en las columnas
+                    else if(desplazamientoDeColumna == desplazamientoDeFila)  //movemos el desplazamiento en las columnas
                     {
                         
+                        if (desplazamientoEnY < 0 && desplazamientoEnX < 0)
+                        {
+                            for (int i = 0; i < desplazamientoDeColumna; i++)
+                            {
+                                
+                                f1 -= 1;
+                                col1 -= 1;
+                                matr[f1, col1] += ".";
+                                desplazamientoEnX += 1;
+                                desplazamientoEnY += 1;
+                                
+                            }
+                                
+                        }
+                        else if(desplazamientoEnY <0 && desplazamientoEnX >0)
+                        {
+                            for (int i = 0; i < desplazamientoDeColumna; i++)
+                            {
+                                f1 -= 1;
+                                col1 += 1;
+                                matr[f1, col1] += ".";
+                                desplazamientoEnX -= 1;
+                                desplazamientoEnY += 1;
+                                
+                            }
+                                
+                        }
+                        else if(desplazamientoEnX<0 && desplazamientoEnY > 0)
+                        {
+                            for (int i = 0; i < desplazamientoDeColumna; i++)
+                            {
+                                f1 += 1;
+                                col1 -= 1;
+                                matr[f1, col1] += ".";
+                                desplazamientoEnX += 1;
+                                desplazamientoEnY -= 1;
+                                
+                            }
+                        }
+                        else
+                        {
+                            for (int i = 0; i < desplazamientoDeColumna; i++)
+                            {
+                                f1 += 1;
+                                col1 += 1;
+                                matr[f1, col1] += ".";
+                                desplazamientoEnX -= 1;
+                                desplazamientoEnY -= 1;
+                                
+                            }
+                        }
+                    }
+                    else
+                    {
                         if (desplazamientoEnY > 0)
                         {
                             for (int i = 0; i < deplazamiento; i++)
@@ -406,7 +461,7 @@ namespace readCharacter
                                 matr[f1 + 1, col1 + 1] += ".";
                                 desplazamientoEnY -= 1;
                             }
-                                
+
                         }
                         else
                         {
@@ -416,7 +471,7 @@ namespace readCharacter
                                 matr[f1 + 1, col1 + 1] += ".";
                                 desplazamientoEnY += 1;
                             }
-                                
+
                         }
                     }
                    
